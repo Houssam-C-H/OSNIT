@@ -1,0 +1,28 @@
+[package]
+name = "osint-case-manager"
+version = "1.0.0"
+description = "A highly secure, local-only OSINT case management desktop application."
+authors = ["you"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0", features = [] }
+tauri-plugin-dialog = "2.0.0"
+rusqlite = { version = "0.31.0", features = ["bundled"] }
+uuid = { version = "1.8.0", features = ["v4"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+csv = "1.3"
+regex = "1.10"
+zip = { version = "2.1", features = ["aes-crypto"] }
+
+[profile.release]
+codegen-units = 1       # Maximum optimization (slower compile, safer binary)
+lto = true              # Link-time optimization (removes dead code and reduces attack surface)
+opt-level = "z"         # Optimize for binary size
+panic = "abort"         # Abort on panic to prevent memory leaks/unwinding exploits
+strip = true            # Strip all debug symbols so reverse engineers cannot read function names

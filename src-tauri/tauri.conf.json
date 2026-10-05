@@ -1,0 +1,24 @@
+{
+  "productName": "osint-case-manager",
+  "version": "1.0.0",
+  "identifier": "com.osint.casemanager",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "bundle": {},
+  "app": {
+    "security": {
+      "csp": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'ipc:';"
+    },
+    "windows": [
+      {
+        "title": "OSINT Case Manager",
+        "width": 1400,
+        "height": 900
+      }
+    ]
+  }
+}
